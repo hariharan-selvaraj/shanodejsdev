@@ -123,7 +123,9 @@ module.exports = {
 
       const request = model.db.request();
 
-      const createdDate = moment(ImageUpload[0].dateTime).utcOffset("+05:30").format('YYYY-MM-DD HH:mm:ss');
+      // const createdDate = moment(ImageUpload[0].dateTime).utcOffset("+05:30").format('YYYY-MM-DD HH:mm:ss');
+
+      const createdDate = ImageUpload[0].dateTime;
 
       let query = `Select CreatedBy,EntryTime ,ProjectTypeId,CompanyType,PhotoTypeId from MB_Jobsheet where CreatedBy = @user_id And CONVERT(DATE, EntryTime) = @createdDate order by Id`
 
